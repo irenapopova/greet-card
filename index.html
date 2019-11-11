@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting Card</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <div id="error-msg">Please use a desktop device to browse this page.</div>
+
+    <div id="card">
+        <div id="card-inside-left">
+            <div class="wrap">
+                <div class="leftpage">
+                    <img src="./img/thank.png" style="margin:0 auto;display:block" />
+                </div>
+                <div class="maintext">
+                    
+                    <p>Sehr geehrte Herr Roarbach,</p>
+                    <p>Thank you for the opportunity to study at DCI.</p>
+                    <p>Vielen Dank dass Sie mir die Gelegenheit gegeben haben!</p>
+                    <p>Mit Freundlichen Grüssen</p>
+                    <p class="signed">Irena Popova</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="card-front">
+            <div class="wrap">
+                <img src="./img/thank.png" style="margin:0 auto;display:block" />
+                <h1>Vielen Dank!</h1>
+                <p>Für die Gelegenheit!</p>
+                <span class="link" id="open">Click Here</span>
+            </div>
+            <button id="close" title="Close Greetings Card!">&times;</button>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        (function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var card1 = $('card-inside-left'),
+                card = $('card'),
+                openB = $('open'),
+                closeB = $('close'),
+                timer = null;
+            openB.addEventListener('click', function () {
+                card.setAttribute('class', 'open-half');
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(function () {
+                    card.setAttribute('class', 'open-fully');
+                    card1.setAttribute("class", "display: block");
+                    timer = null;
+                }, 1000);
+
+            });
+
+            closeB.addEventListener('click', function () {
+                card.setAttribute('class', 'close-half');
+                if (timer) clearTimerout(timer);
+                timer = setTimeout(function () {
+                    card.setAttribute('class', '');
+                    timer = null;
+                }, 1000);
+            });
+
+        }());
+    </script>
+
+</body>
+
+</html>
